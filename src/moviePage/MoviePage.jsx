@@ -2,25 +2,23 @@ import React, { useState, useEffect } from "react";
 
 function MoviePage() {
     const [movies, setMovies] = useState([]);
-    const API_KEY = "https://freetestapi.com/api/v1/movies";
+    const API_KEY = "cf8f659d3c2a36f2361a2b1bdc7eefa3";
+    const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ru-RU&page=1`;
 
     useEffect(() => {
-
-        const fetchData = async () => {
-            try {
-                const result = await fetch(API_KEY);
-
-                result.json().then((json) => {
-                    console.log(json);
-                    setMovies(json.articles);
-                });
-            } catch (error) {
-                console.error(error);
-            };
+      const fetchData = async () => {
+        try {
+          const result = await fetch(API_URL);
+          const json = await result.json();
+          console.log(json.results);
+          setMovies(json.results); 
+        } catch (error) {
+          console.error(error);
         }
+      };
 
-        fetchData();
-    })
+      fetchData();
+    }, []);
 
   return (
     <div className="min-h-screen flex flex-col">

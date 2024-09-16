@@ -5,7 +5,7 @@ function Popular() {
   const [movies, setMovies] = useState([]);
 
   const API_KEY = "cf8f659d3c2a36f2361a2b1bdc7eefa3";
-  const API_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=ru-RU&page=1`;
+  const API_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=eng-ENG&page=1`;
 
   useEffect(() => {
     const fetchData = async () => {

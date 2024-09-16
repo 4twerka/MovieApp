@@ -5,7 +5,7 @@ function MoviePage() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setisLoading] = useState(false);
   const API_KEY = "cf8f659d3c2a36f2361a2b1bdc7eefa3";
-  const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ru-RU&page=1`;
+  const API_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=eng-ENG&page=1`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,6 +66,9 @@ function MoviePage() {
                     <div className="mt-4">
                       <h2 className="text-xl font-semibold">{movie.title}</h2>
                       <p className="text-gray-600 mt-2">{movie.overview}</p>
+                      <p className="text-green-500 mt-2">
+                        Release Date: <div className="text-black">{movie.release_date}</div>
+                      </p>
                     </div>
                   </div>
                 );
